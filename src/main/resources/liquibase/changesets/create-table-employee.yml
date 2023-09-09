@@ -1,0 +1,33 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2
+      author: Marina
+      changes:
+        - createTable:
+            tableName: employees
+            columns:
+              - column:
+                  name: id
+                  type: integer
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: salary
+                  type: int
+              - column:
+                  name: department
+                  type: integer
+              - column:
+                  name: position_id
+                  type: integer
+                  constraints:
+                    foreignKeyName: position_id
+                    references: position(id)
+                    nullable: false
